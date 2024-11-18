@@ -1,0 +1,41 @@
+---
+title: "CS201 - Flex Dashboard Practice"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns #can also be rows
+    vertical_layout: fill #can also be scroll
+    source_code: embed
+    theme:
+      bootswatch: journal
+    navbar:
+        - { icon: "fa fa-github", href: "https://github.com/lydiahefel" }
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
