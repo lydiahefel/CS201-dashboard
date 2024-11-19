@@ -13,9 +13,13 @@ output:
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
+library(knitr)
+library(dplyr)
+library(ggplot2)
+library(plotly)
 ```
 
-Column {data-width=650}
+Column {data-width=350}
 -----------------------------------------------------------------------
 
 ### Chart A
@@ -24,18 +28,25 @@ Column {data-width=650}
 
 ```
 
-Column {data-width=350}
------------------------------------------------------------------------
-
 ### Chart B
 
 ```{r}
+homeworld_plot <- ggplot(starwars, aes(x = homeworld, fill = gender)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
+ggplotly(homeworld_plot)
 ```
 
-### Chart C
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Star Wars Data Table
 
 ```{r}
+starwars <- starwars %>% 
+  select(name, height, mass, gender, species, homeworld)
 
+knitr::kable(starwars)
 ```
 
