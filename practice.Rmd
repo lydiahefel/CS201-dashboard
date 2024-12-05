@@ -1,0 +1,52 @@
+---
+title: "CS201 - Flex Dashboard Practice"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns #can also be rows
+    vertical_layout: fill #can also be scroll
+    source_code: embed
+    theme:
+      bootswatch: journal
+    navbar:
+        - { icon: "fa fa-github", href: "https://github.com/lydiahefel" }
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(knitr)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+
+```
+
+### Chart B
+
+```{r}
+homeworld_plot <- ggplot(starwars, aes(x = homeworld, fill = gender)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplotly(homeworld_plot)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Star Wars Data Table
+
+```{r}
+starwars <- starwars %>% 
+  select(name, height, mass, gender, species, homeworld)
+
+knitr::kable(starwars)
+```
+

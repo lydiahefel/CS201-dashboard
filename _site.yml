@@ -1,2 +1,11 @@
-name: "CS201 - Flex Dashboard Practice"
-output_dir: docs
+title: "CS201 - Flex Dashboard Final"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: row
+    vertical_layout: fill
+    source_code: embed
+    theme:
+      bootswatch: journal
+  navbar:
+      - { icon: "fa fa-globe", href: "https://lydiahefel.github.io/" }
+      - { icon: "fa fa-github", href: "https://github.com/lydiahefel" }
