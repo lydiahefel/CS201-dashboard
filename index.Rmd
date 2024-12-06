@@ -52,7 +52,7 @@ olympics_clean <- na.omit(olympics) %>%  # Remove rows with NA values
 
 # Filter out rows where either weight or height is NA
 height_weight_plot <- ggplot(olympics_clean, aes(x = weight, y = height, color = sex, label = name)) +
-  geom_point() +
+  geom_point(alpha = 0.5) +
   facet_wrap(~sex) +
   theme_lydia +
   scale_color_manual(values = c("M" = "blue", "F" = "hotpink")) +
@@ -69,7 +69,7 @@ medal_data <- olympics %>%
   group_by(sex, medal) %>%
   summarise(count = n()) %>%
   group_by(medal) %>%
-  mutate(proportion = count / sum(count) * 100)
+  mutate(proportion = round(count / sum(count) * 100, 2))
 
 medal_plot <- ggplot(medal_data, aes(x = medal, y = proportion, fill = sex)) +
   geom_col() +
@@ -102,7 +102,7 @@ proportion_data <- olympics %>%
   group_by(sex, year, season) %>%
   summarise(count = n()) %>%
   group_by(year, season) %>%
-  mutate(proportion = count / sum(count) * 100)
+  mutate(proportion = round(count / sum(count) * 100, 2))
 
 proportion_plot <- ggplot(proportion_data, aes(x = year, y = proportion, color = sex, group = season)) +
   geom_line(size = 1.5) +
