@@ -8,7 +8,7 @@ output:
     theme:
       bootswatch: journal
     navbar:
-      - { title: "Lydia Hefel", href: "https://lydiahefel.github.io/", align: right }
+      - { title: "LYDIA HEFEL", href: "https://lydiahefel.github.io/", align: right }
       - { icon: "fa fa-github", href: "https://github.com/lydiahefel", align: right }
 ---
 
